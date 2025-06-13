@@ -105,14 +105,6 @@ for s in statusBad:
     else:
         pass
 
-# Get most common word and its Scrabble Score
-#words = [Counter(d).most_common(1)[0][0] for d in descriptionsC]
-#wordScores = [scrabbleScore(w) for w in words]
-
-# Graph that ish!!
-#plt.bar(words,ratings)
-#plt.show()
-
 # Get a linear regression model using wordScores to get rating
 
 # input: training = training data, fold = which fold is beign set aside as test data, degree = class of model
@@ -366,42 +358,3 @@ x = numpy.linspace(-1, 1000, 100)
 y = 2.8e-04*x**8 + 1.9e-01*x**7 + -2.9e+01*x**6 + -1.1e-07*x**5 + 1.9e-08*x**4 + 2.0e-02*x**3 + 4.7e-01*x**2 + 1.4e-07
 plt.plot(x,y)
 plt.show()
-
-########
-
-# CODE FOR GETTING OTHER DATABASE DATA (may need later)
-
-########
-
-
-#plt.scatter(descScores,ratings) 
-#plt.show() 
-
-#cur.execute("CREATE TABLE movies(id, title, release_date, rating, description, popularity)")
-
-#with open('movies.CSV', newline='', errors='ignore') as csvfile:
-#  data_reader = csv.reader(csvfile)
-#  rows = [movie for movie in data_reader]
-#  rows = [rows[i][1:3]+rows[i][4:5]+[float(rows[i][6])]+rows[i][3:4]+[float(rows[i][5])] for i in range(1,len(rows))] # don't need vote count
-
-#cur.executemany("INSERT INTO movies VALUES(?, ?, ?, ?, ?, ?)", rows)
-#con.commit()
-
-
-#cur.execute("CREATE TABLE metadata(id, title, release_date, rating, genre, description, popularity, status, language, budget, revenue, country, runtime)")
-
-#with open('movies_metadata.CSV', newline='', errors='ignore') as csvfile:
-#  data_reader = csv.reader(csvfile)
-#  rows = [movie for movie in data_reader]
-#  for row in rows:
-#    if len(row[1]) != 0:
-#      row[1] = True # turn into bool
-#    else:
-#      row[1] = False
-#    row[3] = row[3][0]["name"] # just keep first genre
-#    row[13] = row[13][0]["name"] # just keep first country
-
-
-#print(rows[0])
-#cur.executemany("INSERT INTO movies VALUES(?, ?, ?, ?, ?, ?)", rows)
-#con.commit()
